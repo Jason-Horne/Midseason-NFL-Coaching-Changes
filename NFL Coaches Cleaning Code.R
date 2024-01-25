@@ -107,6 +107,7 @@ record <- function(team){
     team$Win_per <- round(team$Wins / total_games, 4)
     
     team <- cbind(team[, 1:3], team[, c("Wins", "Losses", "Ties", "Win_per")], team[, -(1:6)])
+    team <- team[, -((ncol(team) - 3):ncol(team))]
     
     return(team)}
 
